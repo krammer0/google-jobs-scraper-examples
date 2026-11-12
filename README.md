@@ -2,6 +2,8 @@
 
 Google Jobs (the job panel in Google Search) has no official API. These examples get Google Jobs listings as JSON with the [Google Jobs Scraper](https://apify.com/krammer/google-jobs-scraper?utm_source=github&utm_medium=examples) Actor on Apify, then do something useful with them.
 
+Step-by-step article: [How to get Google Jobs listings as JSON with Python (with salary data)](https://dev.to/krammer/how-to-get-google-jobs-listings-as-json-with-python-with-salary-data-4mp9) on DEV.
+
 | Script | What it does |
 |---|---|
 | [`salary_compare.py`](examples/salary_compare.py) | Compares the yearly salary range of one role in several cities. |
