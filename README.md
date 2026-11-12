@@ -9,6 +9,7 @@ Step-by-step article: [How to get Google Jobs listings as JSON with Python (with
 | [`salary_compare.py`](examples/salary_compare.py) | Compares the yearly salary range of one role in several cities. |
 | [`hiring_companies.py`](examples/hiring_companies.py) | Lists the companies that hire for a role in a city, and saves the jobs to CSV. |
 | [`daily_alerts.py`](examples/daily_alerts.py) | Prints only the jobs posted in the last 24 hours that you have not seen before. |
+| [`job-hunt/`](job-hunt/) | A Claude Code skill: scores new jobs against your resume, checks Gmail for jobs you already applied to, and writes a daily "apply today" list. |
 
 ## Quick start
 
@@ -25,6 +26,42 @@ python examples/salary_compare.py "data engineer" "New York, NY" "Austin, TX" "S
 python examples/hiring_companies.py "registered nurse" "Chicago, IL" --csv nurses.csv
 python examples/daily_alerts.py "python developer" --location "London" --country gb
 ```
+
+## Daily job hunt with Claude Code
+
+[`job-hunt/`](job-hunt/) is a [Claude Code](https://docs.claude.com/en/docs/claude-code) skill. Once a day it:
+
+1. gets new Google Jobs listings for your searches (`fetch_jobs.py`),
+2. has Claude score each job 0-10 against your resume, with reasons and gaps,
+3. checks your Gmail (read only) so jobs you already applied to are skipped,
+4. lists the resume points to put first for the top jobs,
+5. writes a Markdown list (`report.py`). You still click "Apply"; it never submits anything.
+
+```bash
+cp -r job-hunt ~/.claude/skills/job-hunt
+mkdir -p ~/job-hunt && cp job-hunt/job-hunt.example.json ~/job-hunt/job-hunt.json
+cp my-resume.md ~/job-hunt/resume.md       # plain text or Markdown
+export APIFY_TOKEN=<your token>
+claude "/job-hunt"
+```
+
+Part of a real list (2026-11-12, with the sample resume in [`job-hunt/resume.example.md`](job-hunt/resume.example.md)):
+
+```markdown
+### 1. Senior Backend Engineer, FinTech Lending Platforms at Coinbase, Inc. (9/10)
+
+- Why it fits:
+  - Senior backend; requires Go or Java and cloud-native tools; resume has Go on AWS
+- Gaps:
+  - Lending and risk domain
+- Put first in your resume:
+  - Go services on AWS (Example Payments)
+  - Kafka pipeline for payment events, 2M events per second
+- Apply: https://...
+  - only reposting sites found; apply on the company careers page if you can
+```
+
+Gmail is optional: set `"maxGmailChecks": 0` if Claude Code has no Gmail tool.
 
 ## The core call
 

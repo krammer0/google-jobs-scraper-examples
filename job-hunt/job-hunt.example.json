@@ -1,0 +1,12 @@
+{
+  "queries": ["backend engineer", "platform engineer"],
+  "locations": ["Seattle, WA"],
+  "country": "us",
+  "datePosted": "7d",
+  "maxResultsPerSearch": 30,
+  "excludeCompanies": [],
+  "minScore": 7,
+  "maxGmailChecks": 10,
+  "topHighlights": 3,
+  "notes": "Remote or hybrid only. No staffing agencies."
+}

@@ -2,3 +2,5 @@ __pycache__/
 *.csv
 seen_job_ids.json
 .venv/
+days/
+seen.json
