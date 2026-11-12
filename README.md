@@ -8,7 +8,7 @@ Step-by-step article: [How to get Google Jobs listings as JSON with Python (with
 |---|---|
 | [`salary_compare.py`](examples/salary_compare.py) | Compares the yearly salary range of one role in several cities. |
 | [`hiring_companies.py`](examples/hiring_companies.py) | Lists the companies that hire for a role in a city, and saves the jobs to CSV. |
-| [`daily_alerts.py`](examples/daily_alerts.py) | Prints only the jobs posted in the last 24 hours that you have not seen before. |
+| [`daily_alerts.py`](examples/daily_alerts.py) | Prints only the new jobs you have not seen before (run it once a day). |
 | [`job-hunt/`](job-hunt/) | A Claude Code skill: scores new jobs against your resume, checks Gmail for jobs you already applied to, and writes a daily "apply today" list. |
 
 ## Quick start

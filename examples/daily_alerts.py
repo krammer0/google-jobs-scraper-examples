@@ -1,5 +1,8 @@
 """Print only the jobs you have not seen before. Run it once a day (cron, or an Apify schedule).
 
+It asks for jobs from the last 7 days, not 24 hours: Google returns its most relevant jobs
+first, and often only a few are from the last 24 hours. The seen-file below removes repeats.
+
 The Actor removes duplicates inside one run only, so this script keeps the job_id values
 it has already shown in a JSON file and skips them next time.
 
@@ -30,7 +33,7 @@ def main():
         with open(a.seen_file) as f:
             seen = set(json.load(f))
 
-    jobs = search_jobs(a.queries, a.location, country=a.country, datePosted="24h")
+    jobs = search_jobs(a.queries, a.location, country=a.country, datePosted="7d")
     fresh = new_jobs(jobs, seen)
     print(f"{len(fresh)} new jobs ({len(jobs) - len(fresh)} already seen)\n")
     for job in fresh:
