@@ -110,7 +110,7 @@ The full field list is on the [Actor page](https://apify.com/krammer/google-jobs
 
 ## Cost
 
-The Actor charges per Google results page (up to 10 jobs): $0.028 to $0.09 per page, depending on your Apify plan. Searches that return nothing are free. For example, 50 jobs is about 5 pages, so $0.45 or less on the Free plan.
+The Actor charges per Google results page that delivers at least one job (up to 10 jobs per page): $0.028 to $0.09 per page, depending on your Apify plan. Searches that return nothing, and pages whose jobs were all removed by your filters, are free. For example, 50 jobs is about 5 pages, so $0.45 or less on the Free plan.
 
 ## Countries
 

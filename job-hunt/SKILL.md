@@ -61,10 +61,10 @@ else:
     go to Step 2
 ```
 
-The Actor charges per Google results page (about 10 jobs), $0.028 to $0.09 per page
-by Apify plan. Keep `datePosted` at `7d`, not `24h`: the date filter runs on the
-results Google returns, so `24h` pays for the same pages and keeps far fewer jobs
-(one real run: 30 found, 1 kept). `seen.json` already hides jobs you saw before.
+The Actor charges per Google results page that delivers at least one job (about 10
+jobs per page), $0.028 to $0.09 per page by Apify plan. Keep `datePosted` at `7d`:
+Google sometimes lists a job a few days after it was posted, and `7d` still catches
+it. `seen.json` already hides jobs you saw before.
 
 ## Step 2: score each job against the resume
 

@@ -1,7 +1,7 @@
 """Print only the jobs you have not seen before. Run it once a day (cron, or an Apify schedule).
 
-It asks for jobs from the last 7 days, not 24 hours: Google returns its most relevant jobs
-first, and often only a few are from the last 24 hours. The seen-file below removes repeats.
+It asks for jobs from the last 7 days, not 24 hours: Google sometimes lists a job a few
+days after it was posted, and 7 days still catches it. The seen-file below removes repeats.
 
 The Actor removes duplicates inside one run only, so this script keeps the job_id values
 it has already shown in a JSON file and skips them next time.
