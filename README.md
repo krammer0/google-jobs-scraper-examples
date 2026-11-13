@@ -34,7 +34,7 @@ python examples/daily_alerts.py "python developer" --location "London" --country
 1. gets new Google Jobs listings for your searches (`fetch_jobs.py`),
 2. has Claude score each job 0-10 against your resume, with reasons and gaps,
 3. checks your Gmail (read only) so jobs you already applied to are skipped,
-4. lists the resume points to put first for the top jobs,
+4. lists the resume points to highlight for the top jobs,
 5. writes a Markdown list (`report.py`). You still click "Apply"; it never submits anything.
 
 ```bash
@@ -54,7 +54,7 @@ Part of a real list (2026-11-12, with the sample resume in [`job-hunt/resume.exa
   - Senior backend; requires Go or Java and cloud-native tools; resume has Go on AWS
 - Gaps:
   - Lending and risk domain
-- Put first in your resume:
+- Highlight on your resume:
   - Go services on AWS (Example Payments)
   - Kafka pipeline for payment events, 2M events per second
 - Apply: https://...

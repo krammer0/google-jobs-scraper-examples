@@ -1,12 +1,12 @@
 ---
 name: job-hunt
-description: Daily job hunt from Google Jobs. Finds jobs posted in the last 24 hours, scores each one against the user's resume, checks Gmail for jobs already applied to, and writes a short list of jobs to apply to today with resume points to put first. Use when the user says "job hunt", "find jobs for me", "run my daily job search", or "/job-hunt". It never submits applications.
+description: Daily job hunt from Google Jobs. Finds new jobs (posted in the last 7 days by default), scores each one against the user's resume, checks Gmail for jobs already applied to, and writes a short list of jobs to apply to today with resume points to highlight. Use when the user says "job hunt", "find jobs for me", "run my daily job search", or "/job-hunt". It never submits applications.
 ---
 
 # job-hunt
 
 Turns new Google Jobs listings into a short daily list: what to apply to, why, and
-what to put first in the resume. The user still clicks "Apply". This skill never
+what to highlight on the resume. The user still clicks "Apply". This skill never
 submits anything, because auto-applying breaks the terms of most job sites and
 puts the user's accounts at risk.
 
@@ -112,7 +112,7 @@ Read only. Do not open attachments, send, label, or delete anything.
 ## Step 4: resume highlights
 
 For the top `topHighlights` jobs with applied = "no", list 2-4 items that already
-exist in the resume and that the job asks for, in the order to put them first.
+exist in the resume and that the job asks for, most important first.
 Do not invent experience.
 
 If a job's `link_kind` is `repost`, the report tells the user to look for the job

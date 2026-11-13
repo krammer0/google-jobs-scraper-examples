@@ -93,7 +93,7 @@ def render(date, jobs, scores, cfg):
         if s.get("gaps"):
             out.append("- Gaps:\n" + bullets(s["gaps"]))
         if s.get("highlights"):
-            out.append("- Put first in your resume:\n" + bullets(s["highlights"]))
+            out.append("- Highlight on your resume:\n" + bullets(s["highlights"]))
         if s.get("applied", "unchecked") == "unchecked":
             out.append("- Gmail: not checked\n")
         out.append(f"- Apply: {j.get('link') or 'no link; search the company careers page'}\n")
