@@ -9,6 +9,7 @@ Step-by-step article: [How to get Google Jobs listings as JSON with Python (with
 | [`salary_compare.py`](examples/salary_compare.py) | Compares the yearly salary range of one role in several cities. |
 | [`hiring_companies.py`](examples/hiring_companies.py) | Lists the companies that hire for a role in a city, and saves the jobs to CSV. |
 | [`daily_alerts.py`](examples/daily_alerts.py) | Prints only the new jobs you have not seen before (run it once a day). |
+| [`jobspy_google_alternative.py`](examples/jobspy_google_alternative.py) | A JobSpy alternative for Google Jobs: returns Google Jobs results with JobSpy's column names. |
 | [`job-hunt/`](job-hunt/) | A Claude Code skill: scores new jobs against your resume, checks Gmail for jobs you already applied to, and writes a daily "apply today" list. |
 
 ## Quick start
@@ -62,6 +63,25 @@ Part of a real list (2026-11-12, with the sample resume in [`job-hunt/resume.exa
 ```
 
 Gmail is optional: set `"maxGmailChecks": 0` if Claude Code has no Gmail tool.
+
+## JobSpy alternative for Google Jobs
+
+[JobSpy](https://github.com/speedyapply/JobSpy) is a popular open-source Python job scraper. As of 2026-11-14, JobSpy 1.4.1 returns 0 jobs for `site_name="google"` ([issue #284](https://github.com/speedyapply/JobSpy/issues/284), open since 2025-06-06). The maintainer wrote on 2026-10-01 that Google serves Jobs results only to browsers that run JavaScript, and that proxies or different search terms do not change this. `jobspy_google_alternative.py` gets the same results from the Actor and returns them with JobSpy's column names. To import it, run Python from the `examples/` folder or add that folder to `sys.path`. pandas is optional.
+
+```python
+# Before (JobSpy): returns 0 jobs for Google as of 2026-11-14
+# jobs = scrape_jobs(site_name=["google"], search_term="software engineer", location="San Francisco, CA", hours_old=72)
+
+# After
+from jobspy_google_alternative import scrape_google_jobs
+jobs = scrape_google_jobs("software engineer", location="San Francisco, CA", hours_old=72, as_dataframe=True)
+```
+
+Or use the command line:
+
+```bash
+python examples/jobspy_google_alternative.py "software engineer" --location "San Francisco, CA" --hours-old 72 --results 20 --csv jobs.csv
+```
 
 ## The core call
 
